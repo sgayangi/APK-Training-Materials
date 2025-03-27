@@ -1,0 +1,19 @@
+---
+apiVersion: "dp.wso2.com/v1alpha1"
+kind: "RateLimitPolicy"
+metadata:
+  name: "api-0-f7996dce4ac15e2af0f8ee14546c4f72988eddae"
+  labels:
+    api-name: "5c296e241ef56a5a40aaa473bfd2613954c9446d"
+    api-version: "983b34771fb7185d04c9603559c9e46f4b70496d"
+    organization: "7505d64a54e061b7acd54ccd58b49dc43500b635"
+    managed-by: "apk"
+spec:
+  default:
+    api:
+      requestsPerUnit: 5
+      unit: "Minute"
+  targetRef:
+    group: "gateway.networking.k8s.io"
+    kind: "API"
+    name: "f7996dce4ac15e2af0f8ee14546c4f72988eddae"
