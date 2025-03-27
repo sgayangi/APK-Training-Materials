@@ -1,0 +1,62 @@
+---
+apiVersion: "gateway.networking.k8s.io/v1beta1"
+kind: "HTTPRoute"
+metadata:
+  name: "employee-service-production-httproute-1"
+spec:
+  hostnames:
+    - "default.gw.example.com"
+  rules:
+    - matches:
+        - path:
+            type: "RegularExpression"
+            value: "/employees"
+          method: "GET"
+      backendRefs:
+        - group: "dp.wso2.com"
+          kind: "Backend"
+          name: "employee-service-backend"
+    - matches:
+        - path:
+            type: "RegularExpression"
+            value: "/employee"
+          method: "POST"
+      backendRefs:
+        - group: "dp.wso2.com"
+          kind: "Backend"
+          name: "employee-service-backend"
+    - matches:
+        - path:
+            type: "RegularExpression"
+            value: "/employee/(.*)"
+          method: "PUT"
+      filters:
+        - type: "URLRewrite"
+          urlRewrite:
+            path:
+              type: "ReplaceFullPath"
+              replaceFullPath: "/employee/\\1"
+      backendRefs:
+        - group: "dp.wso2.com"
+          kind: "Backend"
+          name: "employee-service-backend"
+    - matches:
+        - path:
+            type: "RegularExpression"
+            value: "/employee/(.*)"
+          method: "DELETE"
+      filters:
+        - type: "URLRewrite"
+          urlRewrite:
+            path:
+              type: "ReplaceFullPath"
+              replaceFullPath: "/employee/\\1"
+      backendRefs:
+        - group: "dp.wso2.com"
+          kind: "Backend"
+          name: "employee-service-backend"
+  parentRefs:
+    - group: "gateway.networking.k8s.io"
+      kind: "Gateway"
+      name: "wso2-apk-default"
+      sectionName: "httpslistener"

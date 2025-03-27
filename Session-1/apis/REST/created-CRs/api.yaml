@@ -1,0 +1,15 @@
+---
+kind: "API"
+apiVersion: "dp.wso2.com/v1alpha3"
+metadata:
+  name: "employee-service-api-crs"
+spec:
+  apiName: "EmployeeServiceAPICRs"
+  apiType: "REST"
+  apiVersion: "3.14"
+  basePath: "/employee-service-cr/3.14"
+  organization: "default"
+  isDefaultVersion: false
+  production:
+    - routeRefs:
+        - "employee-service-production-httproute-1"

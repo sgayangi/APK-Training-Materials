@@ -1,0 +1,11 @@
+---
+apiVersion: "dp.wso2.com/v1alpha2"
+kind: "Backend"
+metadata:
+  name: "employee-service-backend"
+spec:
+  services:
+    - host: "employee-service"
+      port: 8080
+  basePath: ""
+  protocol: "http"
