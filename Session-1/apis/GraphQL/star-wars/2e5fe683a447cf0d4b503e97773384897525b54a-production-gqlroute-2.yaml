@@ -1,0 +1,39 @@
+---
+apiVersion: "dp.wso2.com/v1alpha2"
+kind: "GQLRoute"
+metadata:
+  name: "2e5fe683a447cf0d4b503e97773384897525b54a-production-gqlroute-2"
+  labels:
+    api-name: "4ce1443e0a484092e7bdd35919124c52005d01f5"
+    api-version: "91e95be6b6634e3c21072dfcd661146728694326"
+    organization: "7505d64a54e061b7acd54ccd58b49dc43500b635"
+    managed-by: "apk"
+spec:
+  hostnames:
+  - "default.gw.example.com"
+  rules:
+  - matches:
+    - type: "QUERY"
+      path: "allCharacters"
+    filters: []
+  - matches:
+    - type: "QUERY"
+      path: "starship"
+    filters: []
+  - matches:
+    - type: "MUTATION"
+      path: "createReview"
+    filters: []
+  - matches:
+    - type: "SUBSCRIPTION"
+      path: "reviewAdded"
+    filters: []
+  backendRefs:
+  - group: "dp.wso2.com"
+    kind: "Backend"
+    name: "backend-3bb2526c29c9a7f469b31a0f5c0fc7f6d25e1053-api"
+  parentRefs:
+  - group: "gateway.networking.k8s.io"
+    kind: "Gateway"
+    name: "wso2-apk-default"
+    sectionName: "httpslistener"

@@ -1,0 +1,16 @@
+---
+apiVersion: "dp.wso2.com/v1alpha2"
+kind: "Backend"
+metadata:
+  name: "backend-3bb2526c29c9a7f469b31a0f5c0fc7f6d25e1053-api"
+  labels:
+    api-name: "4ce1443e0a484092e7bdd35919124c52005d01f5"
+    api-version: "91e95be6b6634e3c21072dfcd661146728694326"
+    organization: "7505d64a54e061b7acd54ccd58b49dc43500b635"
+    managed-by: "apk"
+spec:
+  services:
+  - host: "httpbin.org"
+    port: 443
+  basePath: "/anything"
+  protocol: "https"

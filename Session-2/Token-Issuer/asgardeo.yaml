@@ -1,0 +1,17 @@
+apiVersion: dp.wso2.com/v1alpha1
+kind: TokenIssuer
+metadata:
+  name: asgardeo-issuer
+spec:
+  consumerKeyClaim: azp
+  issuer: https://api.asgardeo.io/t/orgodw4v/oauth2/token
+  name: asgardeo-provider
+  organization: default
+  scopesClaim: scope
+  signatureValidation:
+    jwks:
+      url: https://api.asgardeo.io/t/orgodw4v/oauth2/jwks
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: wso2-apk-default
