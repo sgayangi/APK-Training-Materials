@@ -1,0 +1,38 @@
+wso2:
+  apk:
+    listener:
+      hostname: "api.example.com"
+      port: 9095
+    idp:
+      issuer: "https://idp.example.com/token"
+    dp:
+      # gatewayRuntime:
+      #   analytics:
+      #     enabled: false
+      #     publishers:
+      #       - enabled: false
+      #         type: "default"
+      #         secretName: "choreo-analytics-secret"
+      gateway:
+        listener:
+          hostname: "gw.example.com"
+          dns:
+            - "*.gw.example.com"
+      configdeployer:
+        vhosts:
+          - name: "default"
+            hosts: ["gw.example.com"]
+            type: "production"
+          - name: "default"
+            hosts: ["sandbox.gw.example.com"]
+            type: "sandbox"
+
+idp:
+  listener:
+    hostname: "idp.example.com"
+  idpds:
+    configs:
+      issuer: "https://idp.example.com/token"
+
+    metrics:
+      enabled: false

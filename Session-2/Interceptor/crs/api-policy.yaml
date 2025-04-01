@@ -1,0 +1,12 @@
+apiVersion: dp.wso2.com/v1alpha2
+kind: APIPolicy
+metadata:
+  name: sample-api-policy
+spec:
+  override:
+    requestInterceptors:
+      - name: req-interceptor-service
+  targetRef:
+    group: dp.wso2.com
+    kind: Gateway
+    name: wso2-apk-default

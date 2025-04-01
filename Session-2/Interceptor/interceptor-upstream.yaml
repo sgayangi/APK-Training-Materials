@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: interceptor-svc
+  namespace: apk
+spec:
+  ports:
+    - name: http
+      port: 8443
+      targetPort: 8443
+  selector:
+    app: interceptor
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: apk
+  name: interceptor-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: interceptor
+  template:
+    metadata:
+      labels:
+        app: interceptor
+    spec:
+      containers:
+        - image: wso2am/apk-sample-xml-interceptor-java:v1.0.0
+          imagePullPolicy: IfNotPresent
+          name: interceptor-container
+          ports:
+            - containerPort: 8443
+          env:
+            - name: allowedAudience
+              value: '["aud3", "aud2"]'
+            - name: introspectURL
+              value: "https://custom-introspect-url.com"
+          volumeMounts:
+            - name: interceptor-certs-vol
+              mountPath: /usr/src/app/certs
+      volumes:
+        - name: interceptor-certs-vol
+          secret:
+            secretName: interceptor-cert
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: interceptor-cert
+spec:
+  dnsNames:
+    - "interceptor-svc.apk"
+  commonName: interceptor-svc.apk
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS8
+    size: 2048
+  issuerRef:
+    kind: ClusterIssuer
+    name: apk-wso2-apk-selfsigned-issuer
+  secretName: interceptor-cert

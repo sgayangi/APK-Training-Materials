@@ -1,0 +1,56 @@
+apiVersion: dp.wso2.com/v1alpha2
+kind: API
+metadata:
+  name: interceptor-api
+spec:
+  apiName: Interceptor API
+  apiType: REST
+  apiVersion: 1.0.0
+  basePath: /interceptor/1.0.0
+  organization: default
+  production:
+    - routeRefs:
+        - interceptor-route
+---
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: interceptor-route
+spec:
+  hostnames:
+    - default.gw.example.com
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: wso2-apk-default
+      sectionName: httpslistener
+  rules:
+    - backendRefs:
+        - group: dp.wso2.com
+          kind: Backend
+          name: backend-svc
+      matches:
+        - path:
+            type: RegularExpression
+            value: /books
+          method: POST
+---
+apiVersion: dp.wso2.com/v1alpha1
+kind: Backend
+metadata:
+  name: backend-svc
+spec:
+  services:
+    - host: "httpbin.org"
+      port: 443
+  basePath: "/anything"
+  protocol: "https"
+# ---
+# apiVersion: dp.wso2.com/v1alpha1
+# kind: Backend
+# metadata:
+#   name: backend-svc
+# spec:
+#   services:
+#     - host: backend-svc.apk
+#       port: 9082

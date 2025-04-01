@@ -1,0 +1,48 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: apk-wso2-nginx-ingress
+  namespace: apk
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/proxy-ssl-name: "$host"
+    nginx.ingress.kubernetes.io/proxy-ssl-server-name: "on"
+    nginx.ingress.kubernetes.io/proxy-ssl-secret: "apk/apk-root-certificate"
+spec:
+  ingressClassName: "nginx"
+  tls:
+    - hosts:
+        - "api.example.com"
+        - "gw.example.com"
+        - "idp.example.com"
+  rules:
+    - host: api.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: apk-wso2-apk-gateway-service
+                port:
+                  number: 9095
+    - host: gw.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: apk-wso2-apk-gateway-service
+                port:
+                  number: 9095
+    - host: idp.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: apk-wso2-apk-gateway-service
+                port:
+                  number: 9095

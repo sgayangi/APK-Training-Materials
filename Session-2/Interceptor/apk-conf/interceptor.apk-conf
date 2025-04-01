@@ -1,0 +1,40 @@
+name: "Interceptor API"
+basePath: "/interceptor-api"
+version: "1.0.0"
+type: "REST"
+defaultVersion: false
+endpointConfigurations:
+  production:
+    - endpoint: "http://backend-svc.apk:9082"
+operations:
+  - target: "/books"
+    verb: "POST"
+    secured: true
+    scopes: []
+  - target: "/offers"
+    verb: "POST"
+    secured: true
+    scopes: []
+apiPolicies:
+  request:
+    - policyName: "Interceptor"
+      policyVersion: v1
+      parameters:
+        backendUrl: "https://interceptor-svc.ns:9081"
+        headersEnabled: true
+        bodyEnabled: true
+        trailersEnabled: true
+        contextEnabled: true
+        tlsSecretName: "interceptor-cert"
+        tlsSecretKey: "ca.crt"
+  response:
+    - policyName: "Interceptor"
+      policyVersion: v1
+      parameters:
+        backendUrl: "https://interceptor-svc.ns:9081"
+        headersEnabled: true
+        bodyEnabled: true
+        trailersEnabled: true
+        contextEnabled: true
+        tlsSecretName: "interceptor-cert"
+        tlsSecretKey: "ca.crt"

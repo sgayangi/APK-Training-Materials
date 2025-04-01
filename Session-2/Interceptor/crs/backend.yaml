@@ -1,0 +1,13 @@
+apiVersion: dp.wso2.com/v1alpha1
+kind: Backend
+metadata:
+  name: interceptor-backend
+spec:
+  protocol: http
+  services:
+    - host: interceptor-svc.apk
+      port: 8443
+  tls:
+    secretRef:
+      name: interceptor-cert
+      key: ca.crt

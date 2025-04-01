@@ -1,0 +1,11 @@
+apiVersion: dp.wso2.com/v1alpha1
+kind: InterceptorService
+metadata:
+  name: req-interceptor-service
+spec:
+  backendRef:
+    name: interceptor-backend
+  includes:
+    - request_body
+    - request_headers
+    - invocation_context
