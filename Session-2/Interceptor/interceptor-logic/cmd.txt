@@ -1,0 +1,1 @@
+swagger-codegen generate -i ./open-api.yaml -l spring -o interceptor-java
