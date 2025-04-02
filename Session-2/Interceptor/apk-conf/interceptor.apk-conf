@@ -11,10 +11,6 @@ operations:
     verb: "POST"
     secured: true
     scopes: []
-  - target: "/offers"
-    verb: "POST"
-    secured: true
-    scopes: []
 apiPolicies:
   request:
     - policyName: "Interceptor"
