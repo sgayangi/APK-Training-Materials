@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "3099bd62-417e-43e6-8002-91d7debfae9d",
+		"name": "Training Session",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18855161"
+	},
+	"item": [
+		{
+			"name": "Asgardeo Token",
+			"item": [
+				{
+					"name": "Asgardeo Get Token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "openid profile",
+									"type": "string"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "https://test.com/login",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "xkc5wnFedNyA3BHAc76xKGWRcLxGMegFRo4mZfpiG5ga",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "1gbEyJ8qlTeQYKCFs7t_4CnoY7sa",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://api.asgardeo.io/t/orgodw4v/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://api.asgardeo.io/t/orgodw4v/oauth2/authorize",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Asgardeo Ceva Test",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Employee Request",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQiOiJlNEUwYVlKVW9POUZCUFcydGZRZ1RYWndTcTQiLCJraWQiOiJOMlF6TVRNMU56Um1aVFF6WlRsak1EVXlZMkZrTkRKaVpHUmtNalE0Tm1NME1tUXdNMkV3T0RnMVltVXdaVFk0WW1FM05tSTJaall5TnpRMU9EQm1aZ19SUzI1NiIsInR5cCI6ImF0K2p3dCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhN2I2ZjFmOS0zOWJkLTQ0NTYtOTUzOS1jZmZmNmY1YmNjYzgiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiaXNzIjoiaHR0cHM6XC9cL2FwaS5hc2dhcmRlby5pb1wvdFwvb3Jnb2R3NHZcL29hdXRoMlwvdG9rZW4iLCJjbGllbnRfaWQiOiIxZ2JFeUo4cWxUZVFZS0NGczd0XzRDbm9ZN3NhIiwiYXVkIjoiMWdiRXlKOHFsVGVRWUtDRnM3dF80Q25vWTdzYSIsIm5iZiI6MTc0MzQxMzM5OCwiYXpwIjoiMWdiRXlKOHFsVGVRWUtDRnM3dF80Q25vWTdzYSIsIm9yZ19pZCI6IjkzOWIyYmRmLTBiM2ItNDliNS04MTRlLWU4MGNhZWU1ZmY0YyIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUiLCJleHAiOjE3NDM0MTY5OTgsIm9yZ19uYW1lIjoib3Jnb2R3NHYiLCJpYXQiOjE3NDM0MTMzOTgsImp0aSI6ImVmYWU1YjViLWVlMzEtNGYwZi1hZWRiLTU3OTNmOWQxNTAwMiIsInVzZXJuYW1lIjoidGVzdEB0ZXN0LmNvbSJ9.SeKN-8yZS2a-NDJPl0Qr1Vf_rK0sRBKMhG-anE3OXeVqXW_6W17BhHkT8amNhTK1H_9OCQacuJ_yyO5ZFl9pwArF5IZFqb_90g0KPPYwqaWvHcCfn0Xun6PjMdFQ98LhrTEBVjOgxbGEgWPiWdhG-LQcyG72FVL-qCfUBbNnzpPR_cATm8fjqcVnaNEALSjTQRSn_9DoUzuDfZ-h0Ib844rutvUHwVK3WXtoKPRzWdu5cJWc5TNbR-YcXg2qO6zG7m3xRilAgjhtDZI_RB5jfoNJwVWf7Bl77w5NwR2nYJ-PnX9QxASFZLlN2jBqMx3FtZ-w7W8WhHIAKcToQmwRCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://default.gw.example.com:9095/employee-service-cr/3.14/employees",
+							"protocol": "https",
+							"host": [
+								"default",
+								"gw",
+								"example",
+								"com"
+							],
+							"port": "9095",
+							"path": [
+								"employee-service-cr",
+								"3.14",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1. Generate Configuration service",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "apiType",
+							"value": "REST",
+							"type": "default"
+						},
+						{
+							"key": "definition",
+							"type": "file",
+							"src": "/Users/gayangiseneviratne/Documents/APK/APK/CS-Training/APK-Training-Materials/Session-1/apis/REST/employee-service.json"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.example.com:9095/api/configurator/1.3.0/apis/generate-configuration",
+					"protocol": "https",
+					"host": [
+						"api",
+						"example",
+						"com"
+					],
+					"port": "9095",
+					"path": [
+						"api",
+						"configurator",
+						"1.3.0",
+						"apis",
+						"generate-configuration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Generate Auth  code token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var accessTokenResponse = pm.response.json();",
+							"if (accessTokenResponse!=null){",
+							"    pm.collectionVariables.set(\"access_token\",accessTokenResponse.access_token);",
+							"    pm.globals.set(\"access_token\",accessTokenResponse.access_token);",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic NDVmMWM1YzgtYTkyZS0xMWVkLWFmYTEtMDI0MmFjMTIwMDAyOjRmYmQ2MmVjLWE5MmUtMTFlZC1hZmExLTAyNDJhYzEyMDAwMg=="
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "default"
+						},
+						{
+							"key": "scope",
+							"value": "apk:api_create ",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "test",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://idp.example.com:9095/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"idp",
+						"example",
+						"com"
+					],
+					"port": "9095",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Deploy API service",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": "api.am.wso2.com",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "apkConfiguration",
+							"type": "file",
+							"src": "/Users/gayangiseneviratne/Documents/APK/APK/CS-Training/APK-Training-Materials/Session-2/header.apk-conf"
+						},
+						{
+							"key": "definitionFile",
+							"type": "file",
+							"src": "/Users/gayangiseneviratne/Documents/APK/APK/CS-Training/APK-Training-Materials/Session-1/apis/REST/employee-service.json"
+						},
+						{
+							"key": "apiType",
+							"value": "REST",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.example.com:9095/api/deployer/1.3.0/apis/deploy",
+					"protocol": "https",
+					"host": [
+						"api",
+						"example",
+						"com"
+					],
+					"port": "9095",
+					"path": [
+						"api",
+						"deployer",
+						"1.3.0",
+						"apis",
+						"deploy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. List Employee Request",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ4NXQiOiJlNEUwYVlKVW9POUZCUFcydGZRZ1RYWndTcTQiLCJraWQiOiJOMlF6TVRNMU56Um1aVFF6WlRsak1EVXlZMkZrTkRKaVpHUmtNalE0Tm1NME1tUXdNMkV3T0RnMVltVXdaVFk0WW1FM05tSTJaall5TnpRMU9EQm1aZ19SUzI1NiIsInR5cCI6ImF0K2p3dCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhN2I2ZjFmOS0zOWJkLTQ0NTYtOTUzOS1jZmZmNmY1YmNjYzgiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiaXNzIjoiaHR0cHM6XC9cL2FwaS5hc2dhcmRlby5pb1wvdFwvb3Jnb2R3NHZcL29hdXRoMlwvdG9rZW4iLCJjbGllbnRfaWQiOiIxZ2JFeUo4cWxUZVFZS0NGczd0XzRDbm9ZN3NhIiwiYXVkIjoiMWdiRXlKOHFsVGVRWUtDRnM3dF80Q25vWTdzYSIsIm5iZiI6MTc0MzU3NDE2NCwiYXpwIjoiMWdiRXlKOHFsVGVRWUtDRnM3dF80Q25vWTdzYSIsIm9yZ19pZCI6IjkzOWIyYmRmLTBiM2ItNDliNS04MTRlLWU4MGNhZWU1ZmY0YyIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUiLCJleHAiOjE3NDM1Nzc3NjQsIm9yZ19uYW1lIjoib3Jnb2R3NHYiLCJpYXQiOjE3NDM1NzQxNjQsImp0aSI6ImRjOWRiZDkxLTY5ZWMtNGYzMC1iZGZkLWMzYmU5MDJhYWJlNiIsInVzZXJuYW1lIjoidGVzdEB0ZXN0LmNvbSJ9.c_EHv7MjQlMXR9e4vDVBUP1hL6gI4_aBNEWWZR9az6NKZIwXAjJjNtpo_wWXWgrCL7gaj2Tx2gzZnES8pdGUnNyinyFxeiNs9c0QzyOgBKT_GUjPWTSojJOO0QKvkBf_WFcyqSuqhfK3id_MJiHFobK0uI5zKAzDMYLOfY3N5wUjW2VyetCiH9DcOKyz0BBy-V0iACcmf4j0tqMGm-Ucmq3s0BJ4cjFdoFKLADWh_rjBvxjH8RRQ4AExTcpwKQJuxP8-tJz3snsOoRhW-P2_wkqyIUij25rSEKA_S5B5oFrhx_1GzR-jeEMCupexxXe6JNQS-w_EjPyUtZGtFCP3wg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://default.gw.example.com:9095/employees-info/3.14/employees",
+					"protocol": "https",
+					"host": [
+						"default",
+						"gw",
+						"example",
+						"com"
+					],
+					"port": "9095",
+					"path": [
+						"employees-info",
+						"3.14",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Asgardeo Invocation - Employee",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ4NXQiOiJlNEUwYVlKVW9POUZCUFcydGZRZ1RYWndTcTQiLCJraWQiOiJOMlF6TVRNMU56Um1aVFF6WlRsak1EVXlZMkZrTkRKaVpHUmtNalE0Tm1NME1tUXdNMkV3T0RnMVltVXdaVFk0WW1FM05tSTJaall5TnpRMU9EQm1aZ19SUzI1NiIsInR5cCI6ImF0K2p3dCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhN2I2ZjFmOS0zOWJkLTQ0NTYtOTUzOS1jZmZmNmY1YmNjYzgiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiaXNzIjoiaHR0cHM6XC9cL2FwaS5hc2dhcmRlby5pb1wvdFwvb3Jnb2R3NHZcL29hdXRoMlwvdG9rZW4iLCJjbGllbnRfaWQiOiIxZ2JFeUo4cWxUZVFZS0NGczd0XzRDbm9ZN3NhIiwiYXVkIjoiMWdiRXlKOHFsVGVRWUtDRnM3dF80Q25vWTdzYSIsIm5iZiI6MTc0MzU2NjcwNCwiYXpwIjoiMWdiRXlKOHFsVGVRWUtDRnM3dF80Q25vWTdzYSIsIm9yZ19pZCI6IjkzOWIyYmRmLTBiM2ItNDliNS04MTRlLWU4MGNhZWU1ZmY0YyIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUiLCJleHAiOjE3NDM1NzAzMDQsIm9yZ19uYW1lIjoib3Jnb2R3NHYiLCJpYXQiOjE3NDM1NjY3MDQsImp0aSI6IjdmOWUwYWU3LTkyNTItNDM4ZC1hOGVhLTBkZDJmOWQ4NDhjYSIsInVzZXJuYW1lIjoidGVzdEB0ZXN0LmNvbSJ9.XZHb5xDzAVag0FpWIlMMYp9YayEVdfk_ApLrF9K91wf5bj9lpLvG7BLOKWlB4In3qSGfQtUM383dNjruigP0BJ55u6l0eYIu3rTlsprG8kFN6yRxVRIEQbRxUCAC0xQtSX0PR0Bn1I6ZMeMQZSsUyNjibsn1fXo945wdrsqeEMqwGPZq0C0B9M6dtaK4mHgt9MPdI5kDSHxKFtB13tEkbLPCKc9HdbVX47hL5bb7A-uWsQ3-Zn5n9NqoE0_thROtf9ju5MD2ZRNvpgWEgW5sjBSahYP5lFhdF1dR9WJ5sn0XrDZvoCKSYB73H1pxKb4sQ6QntWtS5cso6zPG7ZBbLQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://default.gw.example.com:9095/employees-info/3.14/employees",
+					"protocol": "https",
+					"host": [
+						"default",
+						"gw",
+						"example",
+						"com"
+					],
+					"port": "9095",
+					"path": [
+						"employees-info",
+						"3.14",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Generate K8s artifact service Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "apkConfiguration",
+							"type": "file",
+							"src": "/Users/gayangiseneviratne/Documents/APK/APK/CS-Training/APK-Training-Materials/Session-1/apis/REST/employee-service.apk-conf"
+						},
+						{
+							"key": "definitionFile",
+							"type": "file",
+							"src": "/Users/gayangiseneviratne/Documents/APK/APK/CS-Training/APK-Training-Materials/Session-1/apis/REST/employee-service.json"
+						},
+						{
+							"key": "apiType",
+							"value": "REST",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.example.com:9095/api/configurator/1.3.0/apis/generate-k8s-resources",
+					"protocol": "https",
+					"host": [
+						"api",
+						"example",
+						"com"
+					],
+					"port": "9095",
+					"path": [
+						"api",
+						"configurator",
+						"1.3.0",
+						"apis",
+						"generate-k8s-resources"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "access_token",
+			"value": ""
+		}
+	]
+}
